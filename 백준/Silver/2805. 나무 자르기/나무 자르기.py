@@ -6,7 +6,7 @@ N, M = map(int, input().split())
 arr = list(map(int, input().split()))
 
 top = 1
-low = sum(arr)
+low = max(arr)
 
 while top <= low:
     mid = (top + low) // 2
