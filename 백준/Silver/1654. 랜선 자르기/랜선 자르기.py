@@ -10,7 +10,8 @@ while start <= end:
     count = 0
     mid = (start + end) // 2
     for line in lines:
-        count += line // mid
+        if line >= mid:
+            count += line // mid
 
     if count >= N:
         start = mid + 1
