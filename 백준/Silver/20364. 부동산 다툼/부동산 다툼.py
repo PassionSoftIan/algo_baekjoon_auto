@@ -9,8 +9,6 @@ for dck in range(Q):
 
 real_estate = [[] for _ in range(N+1)]
 
-result = []
-
 land = 0
 
 for duck in range(1, len(want)):
@@ -22,9 +20,6 @@ for duck in range(1, len(want)):
         land = land // 2
     if count == 0:
         real_estate[want[duck]].append(duck)
-        result.append(0)
+        print(0)
     else:
-        result.append(count)
-
-for i in result:
-    print(i)
+        print(count)
