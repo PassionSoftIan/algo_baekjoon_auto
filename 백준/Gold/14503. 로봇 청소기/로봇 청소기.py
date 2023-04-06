@@ -1,3 +1,5 @@
+import sys
+input = sys.stdin.readline
 dy = [-1, 0, 1, 0] # 북 동 남 서
 dx = [0, 1, 0, -1]
 
