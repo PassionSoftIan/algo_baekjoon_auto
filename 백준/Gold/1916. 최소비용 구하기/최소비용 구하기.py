@@ -1,5 +1,3 @@
-import sys
-input = sys.stdin.readline
 from heapq import heappop, heappush
 
 N = int(input())
