@@ -13,28 +13,20 @@ def backtracking(depth, s):
 
 
 def check(rlt):
-    info = [[int(1e9)]*N for _ in range(N)]
+    global min_result
     chk = rlt
+    temp = 0
     for dis in home:
+        count = int(1e9)
         for cc in chk:
             y, x = dis[0], dis[1]
             ny, nx = cc[0], cc[1]
             distance = abs(y-ny) + abs(x-nx)
-            if info[y][x] > distance:
-                info[y][x] = distance
-    calculate(info)
-
-
-def calculate(information):
-    global min_result
-    count = 0
-    cal = information
-    for a in range(N):
-        for z in range(N):
-            if cal[a][z] < int(1e9):
-                count += cal[a][z]
-    if min_result > count:
-        min_result = count
+            if count > distance:
+                count = distance
+        temp += count
+    if min_result > temp:
+        min_result = temp
 
 
 N, M = map(int, input().split())
