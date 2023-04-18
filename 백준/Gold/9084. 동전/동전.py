@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 Test_case = int(input())
 
 for tc in range(1, Test_case+1):
