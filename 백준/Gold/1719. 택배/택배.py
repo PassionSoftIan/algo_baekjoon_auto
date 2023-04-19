@@ -5,7 +5,6 @@ N, M = map(int, input().split())
 INF = int(1e9)
 arr = [[INF]*(N+1) for _ in range(N+1)]
 visited = [[0]*(N+1) for _ in range(N+1)]
-info = [[0]*(N+1) for _ in range(N+1)]
 
 for i in range(N+1):
     arr[i][i] = 0
@@ -29,11 +28,6 @@ for k in range(N+1):
             if arr[i][j] > arr[i][k] + arr[k][j]:
                 arr[i][j] = arr[i][k] + arr[k][j]
                 visited[i][j] = visited[i][k]
-
-for i in range(N+1):
-    for j in range(N+1):
-        if arr[i][j] == int(1e9):
-            arr[i][j] = 0
 
 for i in visited[1:]:
     print(*i[1:])
