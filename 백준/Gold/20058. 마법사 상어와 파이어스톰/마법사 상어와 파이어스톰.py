@@ -6,7 +6,7 @@ dy = [0, 1, 0, -1]
 dx = [1, 0, -1, 0]
 
 
-def spin(s, time):
+def spin(s):
     visited = [[0]*(2**N) for _ in range(2**N)]
     if s == 0:
         for i in range(0, 2 ** N):
@@ -26,14 +26,10 @@ def spin(s, time):
 
 
 def storm(arr):
-    global final_result
-    arr = arr
-    result = 0
     for i in range(2**N):
         for j in range(2**N):
             if arr[i][j] == 0:
                 continue
-            result += arr[i][j]
             count = 0
             for k in range(4):
                 ny, nx = i + dy[k], j + dx[k]
@@ -41,22 +37,20 @@ def storm(arr):
                     count += 1
             if count < 3:
                 arr_1[i][j] = arr[i][j] - 1
-                result -= 1
             else:
                 arr_1[i][j] = arr[i][j]
-    final_result = result
 
 
 def find_ice(arr):
-    global max_result
-    arr = arr
+    global max_result, final_result
     coordinate = []
     info = [[0] * (2 ** N) for _ in range(2 ** N)]
     for i in range(2**N):
         for j in range(2**N):
             if arr[i][j] == 0:
                 continue
-            if arr[i][j] != 0 and info[i][j] == 0:
+            final_result += arr[i][j]
+            if info[i][j] == 0:
                 coordinate.append([i, j])
                 count = 0
                 while coordinate:
@@ -82,7 +76,7 @@ final_result = 0
 max_result = 0
 
 for sc in range(T):
-    spin(S[sc], sc)
+    spin(S[sc])
 find_ice(arr_1)
 
 print(final_result)
