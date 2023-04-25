@@ -53,6 +53,9 @@ def find_ice(arr):
             else:
                 final_result += arr[i][j]
                 coordinate.append([i, j])
+    if len(coordinate) == (2 ** N) * (2 ** N):
+        max_result = (2 ** N) * (2 ** N)
+        return
     if not coordinate:
         return
 
@@ -72,6 +75,8 @@ def find_ice(arr):
                         count += 1
         if max_result < count:
             max_result = count
+        if max_result == (2 ** N)*(2 ** N):
+            return
 
 
 N, T = map(int, input().split())
