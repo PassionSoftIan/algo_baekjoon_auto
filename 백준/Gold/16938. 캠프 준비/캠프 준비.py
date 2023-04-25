@@ -1,3 +1,5 @@
+import sys
+input = sys.stdin.readline
 N, L, R, X = map(int, input().split())
 level = list(map(int, input().split()))
 
@@ -9,6 +11,4 @@ for i in range(1 << N):
             arr.append(level[j])
     if L <= sum(arr) <= R and max(arr) - min(arr) >= X:
         count += 1
-        # print(arr, i)
-
 print(count)
