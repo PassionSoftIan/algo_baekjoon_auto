@@ -20,12 +20,12 @@ for qc in range(Q):
         keep[node] = 1
         for check in edge[node]:
             now = check[0]
+            if keep[now] != 0:
+                continue
             ussado = check[1]
             result = min(node_ussado, ussado)
-            if keep[now] == 0:
-                result = min(node_ussado, ussado)
-                if K <= result:
-                    count += 1
-                    que.append([now, ussado])
-                    keep[now] = 1
+            if K <= result:
+                count += 1
+                que.append([now, ussado])
+                keep[now] = 1
     print(count)
